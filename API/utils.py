@@ -97,9 +97,8 @@ def consulta_avancada_2():
 # Consulta com quantificador ANY
 def consulta_any():
     query = """
-    SELECT nome, preco
-    FROM Produtos
-    WHERE preco > ANY (SELECT preco FROM Produtos WHERE categoria = 'Eletrônicos')
+    SELECT * FROM Usuarios 
+    WHERE id_usuario IN (SELECT id_usuario FROM Pedidos)
     """
     conn = conectar()
     cursor = conn.cursor()
